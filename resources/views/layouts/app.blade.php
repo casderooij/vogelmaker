@@ -6,13 +6,11 @@
   </head>
   <body>
 
-    @section('menu')
-      <header class="main-menu">
-        logo | about
-      </header>
-    @show
+    @include('includes.header')
 
     <div class="container">
+      @include('includes.bird-form')
+
       @yield('content')
     </div>
 
