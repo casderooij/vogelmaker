@@ -1,7 +1,9 @@
-  @extends('layouts.homepage-layout')
+@extends('layouts.main-layout')
 
-  @section('title', 'Stock Dove') <!-- interactive -->
+@section('content')
+  @include('includes.homepage-header')
 
-  @section('content')
-    this is the content of index page!
-  @stop
+  this is the content of index page!
+
+  <example></example>
+@endsection
