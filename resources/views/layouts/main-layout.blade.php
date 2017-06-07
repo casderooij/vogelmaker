@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   </head>
   <body>
-    @section('content')
+    <div id="app">
+      @section('content')
+
+      <example></example>
+    </div>
+
+    <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>
