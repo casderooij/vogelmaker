@@ -14,7 +14,7 @@ class CmsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('web');
+        $this->middleware('auth');
     }
 
     /**
@@ -33,7 +33,15 @@ class CmsController extends Controller
     public function store(Request $request) {
       $bird = new Bird;
       $bird->eng_name = $request->eng_name;
+      $bird->lat_name = $request->lat_name;
+      $bird->location = $request->location;
+      $bird->diet = $request->diet;
+      $bird->head_img = $request->file('head_img')->store('images/'.strtolower($bird->eng_name));
+      $bird->body_img = $request->file('body_img')->store('images/'.strtolower($bird->eng_name));
+      $bird->legs_img = $request->file('legs_img')->store('images/'.strtolower($bird->eng_name));
+      $bird->wing_img = $request->file('wing_img')->store('images/'.strtolower($bird->eng_name));
       $bird->save();
-      return 'Yes';
+      return redirect('/home');
+      // return $bird;
     }
 }
