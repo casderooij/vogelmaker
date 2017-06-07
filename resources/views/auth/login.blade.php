@@ -2,8 +2,6 @@
 
 @section('content')
 
-  {{-- @include('includes.login-form') --}}
-
-  <login></login>
+  @include('includes.login-form')
 
 @endsection

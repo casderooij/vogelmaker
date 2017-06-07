@@ -9,5 +9,4 @@
 
   @include('includes.bird-form')
 
-  <example></example>
 @endsection

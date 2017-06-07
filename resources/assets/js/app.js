@@ -14,7 +14,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
-Vue.component('login', require('./components/Login.vue'));
+Vue.component('select-bird', require('./components/SelectBird.vue'));
+Vue.component('make-bird-form', require('./components/MakeBirdForm.vue'));
 
 const app = new Vue({
     el: '#app'

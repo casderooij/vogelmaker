@@ -16,8 +16,5 @@
     }
 </script>
 
-<style media="screen">
-  .container {
-    font-weight: bold;
-  }
+<style>
 </style>

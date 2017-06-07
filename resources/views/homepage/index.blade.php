@@ -1,9 +1,8 @@
 @extends('layouts.main-layout')
 
 @section('content')
-  @include('includes.homepage-header')
+@include('includes.homepage-header')
 
-  this is the content of index page!
+<make-bird-form></make-bird-form>  
 
-  <example></example>
 @endsection
