@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bird;
 
-class HomeController extends Controller
+class CmsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $birds = Bird::all();
+
+      return view('cms.home')->with('birds', $birds);
+    }
+
+    // Store a new bird
+    public function store() {
+
     }
 }

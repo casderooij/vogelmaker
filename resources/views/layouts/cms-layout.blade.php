@@ -5,6 +5,7 @@
     <title>Add new Bird!</title>
   </head>
   <body>
+    @include('includes.cms-header')
 
     @yield('content')
 
