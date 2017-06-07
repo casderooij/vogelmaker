@@ -4,6 +4,6 @@
 
   @include('includes.login-form')
 
-  <example></example>
+  <login></login>
 
 @endsection
