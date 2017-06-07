@@ -15,14 +15,14 @@ class CreateBirdsTable extends Migration
     {
       Schema::create('birds', function(Blueprint $table) {
         $table->increments('id');
-        $table->string('head_img');
-        $table->string('body_img');
-        $table->string('legs_img');
-        $table->string('wing_img');
-        $table->string('eng_name');
-        $table->string('lat_name');
-        $table->string('location');
-        $table->text('diet');
+        $table->string('head_img')->nullable();
+        $table->string('body_img')->nullable();
+        $table->string('legs_img')->nullable();
+        $table->string('wing_img')->nullable();
+        $table->string('eng_name')->nullable();
+        $table->string('lat_name')->nullable();
+        $table->string('location')->nullable();
+        $table->text('diet')->nullable();
         $table->timestamps();
       });
     }

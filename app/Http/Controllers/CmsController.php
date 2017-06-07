@@ -14,7 +14,7 @@ class CmsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('web');
     }
 
     /**
@@ -30,7 +30,10 @@ class CmsController extends Controller
     }
 
     // Store a new bird
-    public function store() {
-
+    public function store(Request $request) {
+      $bird = new Bird;
+      $bird->eng_name = $request->eng_name;
+      $bird->save();
+      return 'Yes';
     }
 }
