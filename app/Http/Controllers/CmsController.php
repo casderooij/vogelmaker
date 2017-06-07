@@ -26,7 +26,7 @@ class CmsController extends Controller
     {
       $birds = Bird::all();
 
-      return view('cms.home')->with('birds', $birds);
+      return view('cms.cms')->with('birds', $birds);
     }
 
     // Store a new bird
