@@ -15,4 +15,6 @@ Route::get('/', 'HomepageController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'CmsController@index');
+
+Route::post('home', 'CmsController@store');
