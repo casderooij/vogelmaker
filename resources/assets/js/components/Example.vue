@@ -12,7 +12,12 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-            console.log('HELLO!')
         }
     }
 </script>
+
+<style media="screen">
+  .container {
+    font-weight: bold;
+  }
+</style>
