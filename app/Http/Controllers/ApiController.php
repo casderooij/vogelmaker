@@ -9,8 +9,6 @@ class ApiController extends Controller
 {
     public function allBirds() {
       $birds = Bird::all();
-      foreach($birds as $bird) {
-        return response()->json($bird->eng_name);
-      }
+      return $birds;
     }
 }
