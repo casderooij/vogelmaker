@@ -51,5 +51,4 @@ import SelectBird from './SelectBird.vue';
 </script>
 
 <style>
-
 </style>
