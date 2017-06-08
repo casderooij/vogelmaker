@@ -17,13 +17,24 @@
       <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
       <bird-image v-bind:image="headImg" class="draggable"></bird-image>
     </div>
-
+    <p>{{ newNames }}</p>
   </div>
 </template>
 
 <script>
 import SelectBird from './SelectBird.vue';
 import BirdImage from './BirdImage.vue';
+
+var breakLatinName = function(name, index) {
+  var newName = name.toLowerCase().replace(' ', '');
+  var newNameArr = newName.split('');
+  var chunk = Math.floor(newName.length / 4);
+  var newIndex = (index-1) * chunk;
+
+  for(var i = newIndex; i < newName.length; i += chunk) {
+    return newName.substr(i, chunk);
+  }
+}
 
     export default {
       data() {
@@ -32,7 +43,13 @@ import BirdImage from './BirdImage.vue';
           legImg: null,
           wingImg: null,
           headImg: null,
-          bodyImg: null
+          bodyImg: null,
+
+          bodyName: '',
+          legName: '',
+          wingName: '',
+          headName: '',
+          newName: ''
         }
       },
       mounted() {
@@ -48,17 +65,27 @@ import BirdImage from './BirdImage.vue';
         }
       },
       methods: {
+        onClickBody: function(value) {
+          this.bodyImg = this.allBirds[value].body_img;
+          this.bodyName = breakLatinName(this.allBirds[value].lat_name, 4);
+        },
         onClickLeg: function(value) {
           this.legImg = this.allBirds[value].legs_img;
+          this.legName = breakLatinName(this.allBirds[value].lat_name, 3);
         },
         onClickWing: function(value) {
           this.wingImg = this.allBirds[value].wing_img;
+          this.wingName = breakLatinName(this.allBirds[value].lat_name, 2);
         },
         onClickHead: function(value) {
           this.headImg = this.allBirds[value].head_img;
-        },
-        onClickBody: function(value) {
-          this.bodyImg = this.allBirds[value].body_img;
+          this.headName = breakLatinName(this.allBirds[value].lat_name, 1);
+        }
+      },
+      computed: {
+        newNames: function() {
+          var tempName = this.newName.concat(this.bodyName, this.legName, this.wingName, this.headName);
+          return tempName.charAt(0).toUpperCase() + tempName.slice(1);
         }
       }
     }

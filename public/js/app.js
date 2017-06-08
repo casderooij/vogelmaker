@@ -2099,6 +2099,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+var breakLatinName = function breakLatinName(name, index) {
+  var newName = name.toLowerCase().replace(' ', '');
+  var newNameArr = newName.split('');
+  var chunk = Math.floor(newName.length / 4);
+  var newIndex = (index - 1) * chunk;
+
+  for (var i = newIndex; i < newName.length; i += chunk) {
+    return newName.substr(i, chunk);
+  }
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2106,7 +2117,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       legImg: null,
       wingImg: null,
       headImg: null,
-      bodyImg: null
+      bodyImg: null,
+
+      bodyName: '',
+      legName: '',
+      wingName: '',
+      headName: '',
+      newName: ''
     };
   },
   mounted: function mounted() {
@@ -2126,17 +2143,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
+    onClickBody: function onClickBody(value) {
+      this.bodyImg = this.allBirds[value].body_img;
+      this.bodyName = breakLatinName(this.allBirds[value].lat_name, 4);
+    },
     onClickLeg: function onClickLeg(value) {
       this.legImg = this.allBirds[value].legs_img;
+      this.legName = breakLatinName(this.allBirds[value].lat_name, 3);
     },
     onClickWing: function onClickWing(value) {
       this.wingImg = this.allBirds[value].wing_img;
+      this.wingName = breakLatinName(this.allBirds[value].lat_name, 2);
     },
     onClickHead: function onClickHead(value) {
       this.headImg = this.allBirds[value].head_img;
-    },
-    onClickBody: function onClickBody(value) {
-      this.bodyImg = this.allBirds[value].body_img;
+      this.headName = breakLatinName(this.allBirds[value].lat_name, 1);
+    }
+  },
+  computed: {
+    newNames: function newNames() {
+      var tempName = this.newName.concat(this.bodyName, this.legName, this.wingName, this.headName);
+      return tempName.charAt(0).toUpperCase() + tempName.slice(1);
     }
   }
 });
@@ -2179,7 +2206,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 38 */
@@ -2525,7 +2552,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "image": _vm.headImg
     }
-  })], 1)])
+  })], 1), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.newNames))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
