@@ -11,10 +11,12 @@
        <select-bird v-bind:allBirds="allBirds" @clicked="onClickBody"></select-bird>.
     </p>
 
-    <bird-image v-bind:image="legImg"></bird-image>
-    <bird-image v-bind:image="wingImg"></bird-image>
-    <bird-image v-bind:image="headImg"></bird-image>
-    <bird-image v-bind:image="bodyImg"></bird-image>
+    <div class="image-container">
+      <bird-image v-bind:image="bodyImg" class="draggable"></bird-image>
+      <bird-image v-bind:image="legImg" class="draggable"></bird-image>
+      <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
+      <bird-image v-bind:image="headImg" class="draggable"></bird-image>
+    </div>
 
   </div>
 </template>
@@ -35,6 +37,15 @@ import BirdImage from './BirdImage.vue';
       },
       mounted() {
         axios.get('/api/all-birds').then(response => this.allBirds = response.data);
+
+        var draggableElems = document.querySelectorAll('.draggable');
+        var draggies = [];
+        for(var i=0, len = draggableElems.length; i < len; i++) {
+          var draggableElem = draggableElems[i];
+          var draggie = new draggabilly(draggableElem, {
+          });
+          draggies.push(draggie);
+        }
       },
       methods: {
         onClickLeg: function(value) {

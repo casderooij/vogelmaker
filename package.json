@@ -14,5 +14,8 @@
     "cross-env": "^3.2.3",
     "laravel-mix": "0.*",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "draggabilly": "^2.1.1"
   }
 }

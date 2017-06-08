@@ -1,12 +1,21 @@
 <template>
-  <img v-bind:src="image" alt="">
+  <div>
+    <img class="image" v-bind:src="image">
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['image']
+  props: ['image'],
+  data: function() {
+    return {
+    }
+  }
 }
 </script>
 
-<style lang="css">
+<style>
+  img {
+    position: absolute;
+  }
 </style>
