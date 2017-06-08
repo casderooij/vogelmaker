@@ -515,6 +515,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -523,9 +526,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       allBirds: [],
       legImg: null,
-      wing: null,
-      head: null,
-      body: null
+      wingImg: null,
+      headImg: null,
+      bodyImg: null
     };
   },
   mounted: function mounted() {
@@ -541,13 +544,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.legImg = this.allBirds[value].legs_img;
     },
     onClickWing: function onClickWing(value) {
-      this.wing = this.allBirds[value];
+      this.wingImg = this.allBirds[value].wing_img;
     },
     onClickHead: function onClickHead(value) {
-      this.head = this.allBirds[value];
+      this.headImg = this.allBirds[value].head_img;
     },
     onClickBody: function onClickBody(value) {
-      this.body = this.allBirds[value];
+      this.bodyImg = this.allBirds[value].body_img;
     }
   }
 });
@@ -590,7 +593,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 11 */
@@ -714,6 +717,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(".\n  ")], 1), _vm._v(" "), _c('img', {
     attrs: {
       "src": _vm.legImg,
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": _vm.wingImg,
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": _vm.headImg,
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": _vm.bodyImg,
       "alt": ""
     }
   })])

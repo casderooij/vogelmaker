@@ -11,6 +11,9 @@
        <select-bird v-bind:allBirds="allBirds" @clicked="onClickBody"></select-bird>.
     </p>
     <img v-bind:src="legImg" alt="">
+    <img v-bind:src="wingImg" alt="">
+    <img v-bind:src="headImg" alt="">
+    <img v-bind:src="bodyImg" alt="">
   </div>
 </template>
 
@@ -22,9 +25,9 @@ import SelectBird from './SelectBird.vue';
         return {
           allBirds: [],
           legImg: null,
-          wing: null,
-          head: null,
-          body: null
+          wingImg: null,
+          headImg: null,
+          bodyImg: null
         }
       },
       mounted() {
@@ -35,13 +38,13 @@ import SelectBird from './SelectBird.vue';
           this.legImg = this.allBirds[value].legs_img;
         },
         onClickWing: function(value) {
-          this.wing = this.allBirds[value];
+          this.wingImg = this.allBirds[value].wing_img;
         },
         onClickHead: function(value) {
-          this.head = this.allBirds[value];
+          this.headImg = this.allBirds[value].head_img;
         },
         onClickBody: function(value) {
-          this.body = this.allBirds[value];
+          this.bodyImg = this.allBirds[value].body_img;
         }
       }
     }

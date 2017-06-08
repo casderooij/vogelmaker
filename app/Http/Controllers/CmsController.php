@@ -36,10 +36,10 @@ class CmsController extends Controller
       $bird->lat_name = $request->lat_name;
       $bird->location = $request->location;
       $bird->diet = $request->diet;
-      $bird->head_img = $request->file('head_img')->store('images/'.str_replace(' ', '-', strtolower($bird->eng_name)));
-      $bird->body_img = $request->file('body_img')->store('images/'.str_replace(' ', '-', strtolower($bird->eng_name)));
-      $bird->legs_img = $request->file('legs_img')->store('images/'.str_replace(' ', '-', strtolower($bird->eng_name)));
-      $bird->wing_img = $request->file('wing_img')->store('images/'.str_replace(' ', '-', strtolower($bird->eng_name)));
+      $bird->head_img = $request->file('head_img')->store(str_replace(' ', '-', strtolower($bird->eng_name)));
+      $bird->body_img = $request->file('body_img')->store(str_replace(' ', '-', strtolower($bird->eng_name)));
+      $bird->legs_img = $request->file('legs_img')->store(str_replace(' ', '-', strtolower($bird->eng_name)));
+      $bird->wing_img = $request->file('wing_img')->store(str_replace(' ', '-', strtolower($bird->eng_name)));
       $bird->save();
       return redirect('/home');
       // return $bird;
