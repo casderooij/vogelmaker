@@ -10,15 +10,18 @@
         head. All these parts are stuck to the body of a
        <select-bird v-bind:allBirds="allBirds" @clicked="onClickBody"></select-bird>.
     </p>
-    <img v-bind:src="legImg" alt="">
-    <img v-bind:src="wingImg" alt="">
-    <img v-bind:src="headImg" alt="">
-    <img v-bind:src="bodyImg" alt="">
+
+    <bird-image v-bind:image="legImg"></bird-image>
+    <bird-image v-bind:image="wingImg"></bird-image>
+    <bird-image v-bind:image="headImg"></bird-image>
+    <bird-image v-bind:image="bodyImg"></bird-image>
+
   </div>
 </template>
 
 <script>
 import SelectBird from './SelectBird.vue';
+import BirdImage from './BirdImage.vue';
 
     export default {
       data() {

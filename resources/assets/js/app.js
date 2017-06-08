@@ -16,6 +16,7 @@ window.axios = require('axios');
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('select-bird', require('./components/SelectBird.vue'));
 Vue.component('make-bird-form', require('./components/MakeBirdForm.vue'));
+Vue.component('bird-image', require('./components/BirdImage.vue'));
 
 const app = new Vue({
     el: '#app'
