@@ -17,5 +17,6 @@ export default {
 <style>
   img {
     position: absolute;
+    cursor: move;
   }
 </style>
