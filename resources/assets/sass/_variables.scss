@@ -1,38 +1,20 @@
-
 // Body
-$body-bg: #f5f8fa;
-
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
-
-// Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+// $body-bg: #f5f8fa;
 
 // Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 14px;
-$line-height-base: 1.6;
-$text-color: #636b6f;
+@import url('https://fonts.googleapis.com/css?family=Karla');
+// $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+// $font-family-sans-serif: "Raleway", sans-serif;
+// $font-size-base: 14px;
+// $line-height-base: 1.6;
+// $text-color: #636b6f;
+$font-family: 'Karla', sans-serif;
+$font-size: 2vw;
 
-// Navbar
-$navbar-default-bg: #fff;
+// Colors
+$color-highlight: #64FFCB;
 
-// Buttons
-$btn-default-color: $text-color;
-
-// Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
-
-// Panels
-$panel-default-heading-bg: #fff;
+// __header-homepage
+$__header-font-size: 1.3vw;
+$__header-line-height: $__header-font-size / 2.4;
+$__header-line-weight: 0.06rem;
