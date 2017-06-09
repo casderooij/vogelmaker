@@ -1,8 +1,10 @@
 <template>
-  <div class="panel-heading">Example Component</div>
+  <div class="container">
+    <div class="title">Example Component</div>
 
-  <div class="panel-body">
-    I'm an example component!
+    <div class="shoutout">
+      I'm an example component!
+    </div>
   </div>
 </template>
 
@@ -13,3 +15,6 @@
         }
     }
 </script>
+
+<style>
+</style>

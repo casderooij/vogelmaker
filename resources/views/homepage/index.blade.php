@@ -1,7 +1,8 @@
-  @extends('layouts.homepage-layout')
+@extends('layouts.main-layout')
 
-  @section('title', 'Stock Dove') <!-- interactive -->
+@section('content')
+@include('includes.homepage-header')
 
-  @section('content')
-    this is the content of index page!
-  @stop
+<make-bird-form></make-bird-form>  
+
+@endsection

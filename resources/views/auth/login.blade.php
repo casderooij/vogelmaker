@@ -1,9 +1,7 @@
-@extends('layouts.login')
+@extends('layouts.main-layout')
 
 @section('content')
-<div class="container">
 
-@include('includes.login-form')
+  @include('includes.login-form')
 
-</div>
 @endsection
