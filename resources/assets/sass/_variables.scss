@@ -1,20 +1,27 @@
-// Body
-// $body-bg: #f5f8fa;
-
 // Typography
 @import url('https://fonts.googleapis.com/css?family=Karla');
-// $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-// $font-family-sans-serif: "Raleway", sans-serif;
-// $font-size-base: 14px;
-// $line-height-base: 1.6;
-// $text-color: #636b6f;
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
 $font-family: 'Karla', sans-serif;
 $font-size: 2vw;
 
 // Colors
 $color-highlight: #64FFCB;
 
+// __ = html component
+
 // __header-homepage
 $__header-font-size: 1.3vw;
 $__header-line-height: $__header-font-size / 2.4;
-$__header-line-weight: 0.06rem;
+$__header-line-weight: 0.1rem;
+
+// -- = vue component
+
+// --bird-form
+$--bird-form-font-size: 1.5vw;
+$--bird-form-name-font-size: 3vw;
+$--bird-form-name-font-family: 'Droid Serif';
+
+// --select-bird
+$--select-bird-line-weight: $__header-line-weight;
+$--select-bird-font-size: 1.4vw;

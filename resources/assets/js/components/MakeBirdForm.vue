@@ -1,15 +1,38 @@
 <template>
-  <div class="container">
-    <p>
-      This new bird has earned the legs of a
-      <select-bird v-bind:allBirds="allBirds" @clicked="onClickLeg"></select-bird>
-       and uses the wings of a
-       <select-bird v-bind:allBirds="allBirds" @clicked="onClickWing"></select-bird>
-       . On top of that you can recognize it by its
-       <select-bird v-bind:allBirds="allBirds" @clicked="onClickHead"></select-bird>
-        head. All these parts are stuck to the body of a
-       <select-bird v-bind:allBirds="allBirds" @clicked="onClickBody"></select-bird>.
-    </p>
+  <div class="--bird-form-container">
+    <div class="--bird-form-text-container">
+
+      <div class="--bird-form-subcontainer">
+        <p class="--bird-form-text">
+          Pay attention to this feathered specimen! It is probably a flying animal that mainly consists out of a
+          <select-bird v-bind:allBirds="allBirds" @clicked="onClickBody"></select-bird>.
+      </p>
+      </div>
+
+      <div class="--bird-form-subcontainer">
+        <p class="--bird-form-text">
+          When observing how the creature is walking, it looks like the paws are that from a
+          <select-bird v-bind:allBirds="allBirds" @clicked="onClickLeg"></select-bird>
+          while the wings are that from a <select-bird v-bind:allBirds="allBirds" @clicked="onClickWing"></select-bird>.
+        </p>
+      </div>
+
+      <div class="--bird-form-subcontainer">
+        <p class="--bird-form-text">
+          Before the obscure bird-like specimen takes flight it turns around. Looking at it's beak, eyes and color, I am bewildered to see that the head is that from a
+          <select-bird v-bind:allBirds="allBirds" @clicked="onClickHead"></select-bird>.
+        </p>
+      </div>
+
+      <div class="--bird-form-subcontainer">
+        <p class="--bird-form-text">
+          I am confident that I have never seen this bird before and therefore shall name it:
+        </p>
+      </div>
+
+    </div>
+
+    <p class="--bird-form-name"> - {{ newNames }} - </p>
 
     <div class="image-container">
       <bird-image v-bind:image="bodyImg" class="draggable"></bird-image>
@@ -17,7 +40,6 @@
       <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
       <bird-image v-bind:image="headImg" class="draggable"></bird-image>
     </div>
-    <p>{{ newNames }}</p>
   </div>
 </template>
 
@@ -67,19 +89,19 @@ var breakLatinName = function(name, index) {
       methods: {
         onClickBody: function(value) {
           this.bodyImg = this.allBirds[value].body_img;
-          this.bodyName = breakLatinName(this.allBirds[value].lat_name, 4);
+          this.bodyName = breakLatinName(this.allBirds[value].lat_name, 1);
         },
         onClickLeg: function(value) {
           this.legImg = this.allBirds[value].legs_img;
-          this.legName = breakLatinName(this.allBirds[value].lat_name, 3);
+          this.legName = breakLatinName(this.allBirds[value].lat_name, 2);
         },
         onClickWing: function(value) {
           this.wingImg = this.allBirds[value].wing_img;
-          this.wingName = breakLatinName(this.allBirds[value].lat_name, 2);
+          this.wingName = breakLatinName(this.allBirds[value].lat_name, 3);
         },
         onClickHead: function(value) {
           this.headImg = this.allBirds[value].head_img;
-          this.headName = breakLatinName(this.allBirds[value].lat_name, 1);
+          this.headName = breakLatinName(this.allBirds[value].lat_name, 4);
         }
       },
       computed: {

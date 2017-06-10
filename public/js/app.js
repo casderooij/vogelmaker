@@ -1115,7 +1115,7 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(56)
+__webpack_require__(65)
 
 var Component = __webpack_require__(2)(
   /* script */
@@ -1123,7 +1123,7 @@ var Component = __webpack_require__(2)(
   /* template */
   __webpack_require__(52),
   /* scopeId */
-  "data-v-c79d9350",
+  null,
   /* cssModules */
   null
 )
@@ -2095,6 +2095,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2145,19 +2167,19 @@ var breakLatinName = function breakLatinName(name, index) {
   methods: {
     onClickBody: function onClickBody(value) {
       this.bodyImg = this.allBirds[value].body_img;
-      this.bodyName = breakLatinName(this.allBirds[value].lat_name, 4);
+      this.bodyName = breakLatinName(this.allBirds[value].lat_name, 1);
     },
     onClickLeg: function onClickLeg(value) {
       this.legImg = this.allBirds[value].legs_img;
-      this.legName = breakLatinName(this.allBirds[value].lat_name, 3);
+      this.legName = breakLatinName(this.allBirds[value].lat_name, 2);
     },
     onClickWing: function onClickWing(value) {
       this.wingImg = this.allBirds[value].wing_img;
-      this.wingName = breakLatinName(this.allBirds[value].lat_name, 2);
+      this.wingName = breakLatinName(this.allBirds[value].lat_name, 3);
     },
     onClickHead: function onClickHead(value) {
       this.headImg = this.allBirds[value].head_img;
-      this.headName = breakLatinName(this.allBirds[value].lat_name, 1);
+      this.headName = breakLatinName(this.allBirds[value].lat_name, 4);
     }
   },
   computed: {
@@ -2183,12 +2205,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['allBirds'],
   data: function data() {
     return {
-      value: null
+      value: null,
+      name: '....................',
+      listToggle: false
     };
   },
   mounted: function mounted() {},
@@ -2196,6 +2222,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     getValue: function getValue(e) {
       this.value = Number(e.target.value);
+      this.name = String(e.target.name);
+      this.listToggle = false;
       this.$emit('clicked', this.value - 1);
     }
   }
@@ -2206,7 +2234,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 38 */
@@ -2223,13 +2251,7 @@ exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\nimg {\n  position: absolute;\n  cursor: move;\n}\n", ""]);
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n.select-container[data-v-c79d9350] {\n  border-bottom: 3px dashed #85FFC7;\n    width: 120px;\n    overflow: hidden;\n}\nselect[data-v-c79d9350] {\n  padding: 5px 8px;\n  width: 100%;\n  border: none;\n  box-shadow: none;\n  background: transparent;\n  background-image: none;\n  -webkit-appearance: none;\n}\nselect[data-v-c79d9350]:focus {\n    outline: none;\n}\n", ""]);
-
-/***/ }),
+/* 40 */,
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3919,36 +3941,52 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
-  }, [_c('p', [_vm._v("\n    This new bird has earned the legs of a\n    "), _c('select-bird', {
-    attrs: {
-      "allBirds": _vm.allBirds
-    },
-    on: {
-      "clicked": _vm.onClickLeg
-    }
-  }), _vm._v("\n     and uses the wings of a\n     "), _c('select-bird', {
-    attrs: {
-      "allBirds": _vm.allBirds
-    },
-    on: {
-      "clicked": _vm.onClickWing
-    }
-  }), _vm._v("\n     . On top of that you can recognize it by its\n     "), _c('select-bird', {
-    attrs: {
-      "allBirds": _vm.allBirds
-    },
-    on: {
-      "clicked": _vm.onClickHead
-    }
-  }), _vm._v("\n      head. All these parts are stuck to the body of a\n     "), _c('select-bird', {
+    staticClass: "--bird-form-container"
+  }, [_c('div', {
+    staticClass: "--bird-form-text-container"
+  }, [_c('div', {
+    staticClass: "--bird-form-subcontainer"
+  }, [_c('p', {
+    staticClass: "--bird-form-text"
+  }, [_vm._v("\n        Pay attention to this feathered specimen! It is probably a flying animal that mainly consists out of a\n        "), _c('select-bird', {
     attrs: {
       "allBirds": _vm.allBirds
     },
     on: {
       "clicked": _vm.onClickBody
     }
-  }), _vm._v(".\n  ")], 1), _vm._v(" "), _c('div', {
+  }), _vm._v(".\n    ")], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "--bird-form-subcontainer"
+  }, [_c('p', {
+    staticClass: "--bird-form-text"
+  }, [_vm._v("\n        When observing how the creature is walking, it looks like the paws are that from a\n        "), _c('select-bird', {
+    attrs: {
+      "allBirds": _vm.allBirds
+    },
+    on: {
+      "clicked": _vm.onClickLeg
+    }
+  }), _vm._v("\n        while the wings are that from a "), _c('select-bird', {
+    attrs: {
+      "allBirds": _vm.allBirds
+    },
+    on: {
+      "clicked": _vm.onClickWing
+    }
+  }), _vm._v(".\n      ")], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "--bird-form-subcontainer"
+  }, [_c('p', {
+    staticClass: "--bird-form-text"
+  }, [_vm._v("\n        Before the obscure bird-like specimen takes flight it turns around. Looking at it's beak, eyes and color, I am bewildered to see that the head is that from a\n        "), _c('select-bird', {
+    attrs: {
+      "allBirds": _vm.allBirds
+    },
+    on: {
+      "clicked": _vm.onClickHead
+    }
+  }), _vm._v(".\n      ")], 1)]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c('p', {
+    staticClass: "--bird-form-name"
+  }, [_vm._v(" - " + _vm._s(_vm.newNames) + " - ")]), _vm._v(" "), _c('div', {
     staticClass: "image-container"
   }, [_c('bird-image', {
     staticClass: "draggable",
@@ -3970,8 +4008,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "image": _vm.headImg
     }
-  })], 1), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.newNames))])])
-},staticRenderFns: []}
+  })], 1)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "--bird-form-subcontainer"
+  }, [_c('p', {
+    staticClass: "--bird-form-text"
+  }, [_vm._v("\n        I am confident that I have never seen this bird before and therefore shall name it:\n      ")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -4029,27 +4073,39 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "select-container"
-  }, [_c('select', {
-    attrs: {
-      "id": "select"
-    },
+    staticClass: "--select-bird-container"
+  }, [_c('button', {
+    staticClass: "--select-bird-select-button",
     on: {
-      "change": _vm.getValue
-    }
-  }, [_c('option', {
-    attrs: {
-      "disabled": "",
-      "selected": "",
-      "value": ""
-    }
-  }), _vm._v(" "), _vm._l((_vm.allBirds), function(bird) {
-    return _c('option', {
-      domProps: {
-        "value": bird.id
+      "click": function($event) {
+        _vm.listToggle = true
       }
-    }, [_vm._v(_vm._s(bird.eng_name))])
-  })], 2)])
+    }
+  }, [_vm._v(_vm._s(_vm.name))]), _vm._v(" "), _c('ul', {
+    staticClass: "--select-bird-select-list",
+    staticStyle: {
+      "list-style-type": "none"
+    }
+  }, _vm._l((_vm.allBirds), function(bird) {
+    return _c('li', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (_vm.listToggle),
+        expression: "listToggle"
+      }],
+      staticClass: "--select-bird-select-item"
+    }, [_c('button', {
+      staticClass: "--select-bird-select-item-button",
+      attrs: {
+        "name": bird.eng_name,
+        "value": bird.id
+      },
+      on: {
+        "click": _vm.getValue
+      }
+    }, [_vm._v(_vm._s(bird.eng_name))])])
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -4138,32 +4194,7 @@ if(false) {
 }
 
 /***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(40);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("72e82266", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-c79d9350\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectBird.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-c79d9350\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectBird.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
+/* 56 */,
 /* 57 */
 /***/ (function(module, exports) {
 
@@ -13928,6 +13959,41 @@ module.exports = g;
 
 module.exports = __webpack_require__(12);
 
+
+/***/ }),
+/* 62 */,
+/* 63 */,
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)();
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(64);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("102bb4de", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-c79d9350\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectBird.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-c79d9350\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SelectBird.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);
