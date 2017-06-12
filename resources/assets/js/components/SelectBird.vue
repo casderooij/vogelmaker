@@ -15,7 +15,7 @@
       data: function() {
         return {
           value: null,
-          name: '....................',
+          name: '.........',
           listToggle: false
         }
       },

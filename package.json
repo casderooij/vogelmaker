@@ -16,6 +16,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "draggabilly": "^2.1.1"
+    "draggabilly": "^2.1.1",
+    "normalize.css": "^7.0.0"
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img class="image" v-bind:src="image">
+    <img class="--image" v-bind:src="image">
   </div>
 </template>
 
@@ -15,8 +15,4 @@ export default {
 </script>
 
 <style>
-  img {
-    position: absolute;
-    cursor: move;
-  }
 </style>

@@ -11,17 +11,17 @@ $color-highlight: #64FFCB;
 // __ = html component
 
 // __header-homepage
-$__header-font-size: 1.3vw;
+$__header-font-size: 1rem;
 $__header-line-height: $__header-font-size / 2.4;
 $__header-line-weight: 0.1rem;
 
 // -- = vue component
 
 // --bird-form
-$--bird-form-font-size: 1.5vw;
+$--bird-form-font-size: 1rem;
 $--bird-form-name-font-size: 3vw;
 $--bird-form-name-font-family: 'Droid Serif';
 
 // --select-bird
 $--select-bird-line-weight: $__header-line-weight;
-$--select-bird-font-size: 1.4vw;
+$--select-bird-font-size: 1rem;

@@ -34,7 +34,7 @@
 
     <p class="--bird-form-name"> - {{ newNames }} - </p>
 
-    <div class="image-container">
+    <div class="--image-container">
       <bird-image v-bind:image="bodyImg" class="draggable"></bird-image>
       <bird-image v-bind:image="legImg" class="draggable"></bird-image>
       <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
