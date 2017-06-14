@@ -3,10 +3,10 @@
 
 .--select-bird-select-button
   min-width: 2rem
-  background-color: white
+  background-color: $color-highlight
   border: none
-  border-bottom: $--select-bird-line-weight solid $color-highlight
-  font-size: $--select-bird-font-size
+  border-bottom: $--select-bird-line-weight solid $color-highlight-light
+  font-size: $--bird-form-font-size
   font-family: $font-family
   letter-spacing: 0.1rem
   font-weight: bold
@@ -15,31 +15,36 @@
   height: 1rem
   padding: 0 0.5rem 1.2rem
   margin: 0
+  color: $text-color
 
 .--select-bird-select-button::after
   outline: none
 
 .--select-bird-select-list
   padding: 0
-  margin: 0
+  margin: 0 auto
   position: absolute
+  filter: brightness(95%)
+  background-color: $color-highlight
+  border-radius: 0px 10px 10px 10px
+  z-index: 1
 
 .--select-bird-select-item
-  background-color: $color-highlight
-  padding: 0.2rem 0.4rem
+  padding: 0.4rem 0.2rem
 
 .--select-bird-select-item-button
-  background-color: $color-highlight
-  color: white
-  border: none
+  background-color: rgba(255, 255, 255, 0)
+  color: #fff
   outline: none
-  margin: 0 0.2rem
   font-size: $--select-bird-font-size
   font-family: $font-family
   transition: color 0.1s
+  filter: brightness(100%)
+  text-align: center
 
 .--select-bird-select-item-button:hover
-  color: black
+  color: #333
+  cursor: pointer
 
 .--select-bird-select-item-button::after
   outline: none

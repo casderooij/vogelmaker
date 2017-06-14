@@ -1,5 +1,7 @@
 .__header-homepage
-  padding: 1rem 2rem
+  top: 50%
+  transform: translateY(-50%)
+  transform: translateX(-20px)
   position: fixed
   z-index: 10
   min-width: 100vw
@@ -10,10 +12,12 @@
 
 .__header-homepage-link
   font-size: $__header-font-size
-
-.__header-homepage-link:hover
-  color: #fff
+  color: $text-color
   font-weight: bold
+  top: 2rem
+
+.logo
+  transform: rotate(90deg)
 
 .about
-  padding-right: 4rem
+  transform: rotate(-90deg)

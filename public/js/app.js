@@ -2154,7 +2154,9 @@ var breakLatinName = function breakLatinName(name, index) {
       newName: '',
 
       top: 0,
-      windowHeight: 0
+      windowHeight: 0,
+
+      birdZIndex: -1
     };
   },
   mounted: function mounted() {
@@ -2193,6 +2195,14 @@ var breakLatinName = function breakLatinName(name, index) {
 
     handleScroll: function handleScroll() {
       this.top = window.scrollY;
+
+      if (this.top >= this.windowHeight - 20) {
+        this.birdZIndex = 10;
+        console.log('yes');
+      }
+      if (this.top <= this.windowHeight - 10) {
+        this.birdZIndex = -1;
+      }
     }
   },
   computed: {
@@ -2254,7 +2264,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 38 */
@@ -3971,7 +3981,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "--bird-form-container",
     style: ({
-      opacity: 1 - (_vm.top / _vm.windowHeight)
+      opacity: 1 - (_vm.top / _vm.windowHeight) * 0.2
     })
   }, [_c('div', {
     staticClass: "--bird-form-text-container"
@@ -4017,8 +4027,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(".\n      ")], 1)]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c('p', {
     staticClass: "--bird-form-name"
-  }, [_vm._v(" - " + _vm._s(_vm.newNames) + " - ")]), _vm._v(" "), _c('div', {
-    staticClass: "--image-container"
+  }, [_vm._v(_vm._s(_vm.newNames))]), _vm._v(" "), _c('div', {
+    staticClass: "--image-container",
+    style: ({
+      zIndex: _vm.birdZIndex
+    })
   }, [_c('bird-image', {
     staticClass: "draggable",
     attrs: {
@@ -4109,7 +4122,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "--select-bird-select-button",
     on: {
       "click": function($event) {
-        _vm.listToggle = true
+        _vm.listToggle = !_vm.listToggle
       }
     }
   }, [_vm._v(_vm._s(_vm.name))]), _vm._v(" "), _c('ul', {

@@ -1,7 +1,7 @@
 <template>
   <div class="--bird-form-main-container">
 
-  <div class="--bird-form-container" v-bind:style="{ opacity: 1 - (top / windowHeight) }">
+  <div class="--bird-form-container" v-bind:style="{ opacity: 1 - (top / windowHeight) * 0.2 }">
     <div class="--bird-form-text-container">
 
       <div class="--bird-form-subcontainer">
@@ -36,9 +36,9 @@
 
   </div>
 
-  <p class="--bird-form-name"> - {{ newNames }} - </p>
+  <p class="--bird-form-name">{{ newNames }}</p>
 
-  <div class="--image-container">
+  <div class="--image-container" v-bind:style="{ zIndex: birdZIndex }">
     <bird-image v-bind:image="bodyImg" class="draggable"></bird-image>
     <bird-image v-bind:image="legImg" class="draggable"></bird-image>
     <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
@@ -80,7 +80,9 @@ var breakLatinName = function(name, index) {
           newName: '',
 
           top: 0,
-          windowHeight: 0
+          windowHeight: 0,
+
+          birdZIndex: -1
         }
       },
       mounted() {
@@ -116,6 +118,13 @@ var breakLatinName = function(name, index) {
         handleScroll: function() {
           this.top = window.scrollY;
 
+          if(this.top >= this.windowHeight - 20) {
+            this.birdZIndex = 10;
+            console.log('yes');
+          }
+          if(this.top <= this.windowHeight - 10) {
+            this.birdZIndex = -1;
+          }
         }
       },
       computed: {
