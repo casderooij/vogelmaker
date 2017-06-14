@@ -2117,6 +2117,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2145,7 +2151,10 @@ var breakLatinName = function breakLatinName(name, index) {
       legName: '',
       wingName: '',
       headName: '',
-      newName: ''
+      newName: '',
+
+      top: 0,
+      windowHeight: 0
     };
   },
   mounted: function mounted() {
@@ -2180,6 +2189,10 @@ var breakLatinName = function breakLatinName(name, index) {
     onClickHead: function onClickHead(value) {
       this.headImg = this.allBirds[value].head_img;
       this.headName = breakLatinName(this.allBirds[value].lat_name, 4);
+    },
+
+    handleScroll: function handleScroll() {
+      this.top = window.scrollY;
     }
   },
   computed: {
@@ -2187,6 +2200,13 @@ var breakLatinName = function breakLatinName(name, index) {
       var tempName = this.newName.concat(this.bodyName, this.legName, this.wingName, this.headName);
       return tempName.charAt(0).toUpperCase() + tempName.slice(1);
     }
+  },
+  created: function created() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.windowHeight = window.innerHeight;
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 });
 
@@ -2234,7 +2254,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 38 */
@@ -3947,7 +3967,12 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "--bird-form-container"
+    staticClass: "--bird-form-main-container"
+  }, [_c('div', {
+    staticClass: "--bird-form-container",
+    style: ({
+      opacity: 1 - (_vm.top / _vm.windowHeight)
+    })
   }, [_c('div', {
     staticClass: "--bird-form-text-container"
   }, [_c('div', {
@@ -3990,7 +4015,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "clicked": _vm.onClickHead
     }
-  }), _vm._v(".\n      ")], 1)]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c('p', {
+  }), _vm._v(".\n      ")], 1)]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c('p', {
     staticClass: "--bird-form-name"
   }, [_vm._v(" - " + _vm._s(_vm.newNames) + " - ")]), _vm._v(" "), _c('div', {
     staticClass: "--image-container"

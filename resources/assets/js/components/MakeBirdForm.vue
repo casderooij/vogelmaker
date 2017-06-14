@@ -1,5 +1,7 @@
 <template>
-  <div class="--bird-form-container">
+  <div class="--bird-form-main-container">
+
+  <div class="--bird-form-container" v-bind:style="{ opacity: 1 - (top / windowHeight) }">
     <div class="--bird-form-text-container">
 
       <div class="--bird-form-subcontainer">
@@ -32,15 +34,19 @@
 
     </div>
 
-    <p class="--bird-form-name"> - {{ newNames }} - </p>
-
-    <div class="--image-container">
-      <bird-image v-bind:image="bodyImg" class="draggable"></bird-image>
-      <bird-image v-bind:image="legImg" class="draggable"></bird-image>
-      <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
-      <bird-image v-bind:image="headImg" class="draggable"></bird-image>
-    </div>
   </div>
+
+  <p class="--bird-form-name"> - {{ newNames }} - </p>
+
+  <div class="--image-container">
+    <bird-image v-bind:image="bodyImg" class="draggable"></bird-image>
+    <bird-image v-bind:image="legImg" class="draggable"></bird-image>
+    <bird-image v-bind:image="wingImg" class="draggable"></bird-image>
+    <bird-image v-bind:image="headImg" class="draggable"></bird-image>
+  </div>
+
+  </div>
+
 </template>
 
 <script>
@@ -71,7 +77,10 @@ var breakLatinName = function(name, index) {
           legName: '',
           wingName: '',
           headName: '',
-          newName: ''
+          newName: '',
+
+          top: 0,
+          windowHeight: 0
         }
       },
       mounted() {
@@ -102,6 +111,11 @@ var breakLatinName = function(name, index) {
         onClickHead: function(value) {
           this.headImg = this.allBirds[value].head_img;
           this.headName = breakLatinName(this.allBirds[value].lat_name, 4);
+        },
+
+        handleScroll: function() {
+          this.top = window.scrollY;
+
         }
       },
       computed: {
@@ -109,6 +123,13 @@ var breakLatinName = function(name, index) {
           var tempName = this.newName.concat(this.bodyName, this.legName, this.wingName, this.headName);
           return tempName.charAt(0).toUpperCase() + tempName.slice(1);
         }
+      },
+      created() {
+        window.addEventListener('scroll', this.handleScroll);
+        this.windowHeight = window.innerHeight;
+      },
+      destroyed() {
+        window.removeEventListener('scroll', this.handleScroll);
       }
     }
 </script>

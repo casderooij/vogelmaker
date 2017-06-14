@@ -3,7 +3,18 @@
 @import "../components/--select-bird.sass"
 @import "../components/--image-container.sass"
 
+@keyframes fadeInScreen
+  0%
+    background-color: $color-highlight
+    opacity: 0
+  20%
+    opacity: 0
+  100%
+    background-color: $color-highlight
+    opacity: 1
+
 html
+  animation: 1s ease-in-out 0s 1 fadeInScreen
   padding: 0
   margin: 0
   font-family: $font-family
@@ -19,3 +30,8 @@ a::after
 button
   border: none
   font-size: 1rem
+
+div#app
+  display: flex
+  flex-direction: column
+  min-height: 200vh
